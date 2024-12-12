@@ -1,23 +1,19 @@
-import { createBrowserRouter } from "react-router-dom"
-import App from "./pages/App";
+import { createBrowserRouter } from "react-router-dom";
 import Character from "./pages/Character";
+import { Characters } from "./pages/Characters";
 
 export const router = createBrowserRouter([
-    {
-      path: "/",
-      children: [
-        {
-          path: "",
-          element: (
-            <App/>
-            )
-        },
-        {
-          path: ':id',
-          element: (
-            <Character/>
-          )
-        }
-      ]
-    }
-  ]);
+  {
+    path: "/",
+    children: [
+      {
+        path: "",
+        element: <Characters />,
+      },
+      {
+        path: ":id",
+        element: <Character />,
+      },
+    ],
+  },
+]);

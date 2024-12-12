@@ -1,0 +1,10 @@
+.cards-container {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.buttons-container {
+  display: flex;
+  justify-content: center;
+}
