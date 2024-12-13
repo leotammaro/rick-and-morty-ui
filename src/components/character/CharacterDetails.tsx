@@ -17,6 +17,13 @@ export function CharacterDetails({ character }: { character: Character }) {
     });
   }, [character]);
 
+  const characterDescriptions = [
+    { title: CHARACTER_TITLES.SPECIES, value: character.species },
+    { title: CHARACTER_TITLES.STATUS, value: character.status },
+    { title: CHARACTER_TITLES.LAST_LOCATION, value: character.location.name },
+    { title: CHARACTER_TITLES.EPISODES, value: episodes.join(", ") },
+  ];
+
   return (
     <div className="character-details">
       <h1>Character details</h1>
@@ -28,22 +35,13 @@ export function CharacterDetails({ character }: { character: Character }) {
       <h2>{character.name}</h2>
 
       <div className="descriptions-container">
-        <DescriptionContainer
-          title={CHARACTER_TITLES.SPECIES}
-          value={character.species}
-        />
-        <DescriptionContainer
-          title={CHARACTER_TITLES.STATUS}
-          value={character.status}
-        />
-        <DescriptionContainer
-          title={CHARACTER_TITLES.LAST_LOCATION}
-          value={character.location.name}
-        />
-        <DescriptionContainer
-          title={CHARACTER_TITLES.EPISODES}
-          value={episodes.join(", ")}
-        />
+        {characterDescriptions.map((description) => (
+          <DescriptionContainer
+            key={description.title}
+            title={description.title}
+            value={description.value}
+          />
+        ))}
       </div>
     </div>
   );
