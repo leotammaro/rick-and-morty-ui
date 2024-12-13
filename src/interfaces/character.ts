@@ -4,7 +4,10 @@ export interface Character {
   episode: string[];
   gender: string;
   image: string;
-  location: string[];
+  location: {
+    name: string;
+    url: string;
+  };
   name: string;
   origin: string;
   species: string;
