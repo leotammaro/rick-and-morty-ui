@@ -26,5 +26,18 @@ export const useCharacters = () => {
     });
   };
 
-  return { useGetAll };
+  const useGetOne = (id?: string) => {
+    return useQuery({
+      queryKey: [CHARACTERS_KEYS.CHARACTERS, id],
+      staleTime: 1000 * 60 * 5,
+      retry: false,
+      enabled: !!id,
+      queryFn: () =>
+        api
+          .get<Character>(`${CHARACTERS_QUERIES.CHARACTER}/ ${id}`)
+          .then((response) => response.data),
+    });
+  };
+
+  return { useGetAll, useGetOne };
 };

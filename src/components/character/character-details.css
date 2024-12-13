@@ -1,0 +1,21 @@
+.description-container {
+  display: flex;
+  align-items: center;
+}
+
+.character-details {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background-color: #f4f4f4;
+  padding: 25px;
+  border-radius: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border: 1px solid #ccc;
+  min-width: 600px;
+}
+
+.character-image-details {
+  max-width: 300px;
+  border-radius: 50%;
+}
